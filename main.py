@@ -69,7 +69,7 @@ def runGoalSeek(schedule:scheduleData):
         if index == 0:
             startAmount = 0
             endAmount = item.interest + item.drawdowns - item.repayments
-            updatedScheduleItems.append({"date":item.date,"startAmount":0,"interest":item.interest ,"drawdowns":item.drawdowns,"repayments":item.repayments,"endAmount":endAmount})
+            updatedScheduleItems.append({"date":item.date,"startAmount":0,"interest":item.interest ,"drawdowns":item.drawdowns,"repayments":item.repayments,"endAmount":endAmount,"estimated":bool(item.estimated)})
         else:
             startAmount = endAmount
             priorItem = scheduleDataList[index - 1]
@@ -78,7 +78,7 @@ def runGoalSeek(schedule:scheduleData):
             daysDiff = (abs((currentDate - priorDate).days))
             interestPayable = startAmount * result * ((daysDiff)/365)
             endAmount = startAmount + interestPayable + item.drawdowns - item.repayments
-            updatedScheduleItems.append({"date":item.date,"startAmount":round(startAmount,2),"interest":round(interestPayable,2),"drawdowns":item.drawdowns,"repayments":item.repayments,"endAmount":round(endAmount,2)})     
+            updatedScheduleItems.append({"date":item.date,"startAmount":round(startAmount,2),"interest":round(interestPayable,2),"drawdowns":item.drawdowns,"repayments":item.repayments,"endAmount":round(endAmount,2),"estimated":bool(item.estimated)})     
 
 
     updatedLoanSchedule["scheduleItems"] = updatedScheduleItems
