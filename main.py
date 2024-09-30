@@ -16,7 +16,7 @@ class scheduleItem(BaseModel):
     interest: int
     drawdowns: int
     repayments: int
-    estimated: bool
+    estimated: str
 
 class scheduleData(BaseModel):
     data: List[scheduleItem]
