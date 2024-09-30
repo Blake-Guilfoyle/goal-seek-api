@@ -78,7 +78,7 @@ def runGoalSeek(schedule:scheduleData):
             daysDiff = (abs((currentDate - priorDate).days))
             interestPayable = startAmount * result * ((daysDiff)/365)
             endAmount = startAmount + interestPayable + item.drawdowns - item.repayments
-            updatedScheduleItems.append({"Date":item.date,"startAmount":round(startAmount,2),"interest":round(interestPayable,2),"drawdowns":item.drawdowns,"repayments":item.repayments,"endAmount":round(endAmount,2)})     
+            updatedScheduleItems.append({"date":item.date,"startAmount":round(startAmount,2),"interest":round(interestPayable,2),"drawdowns":item.drawdowns,"repayments":item.repayments,"endAmount":round(endAmount,2)})     
 
 
     updatedLoanSchedule["scheduleItems"] = updatedScheduleItems
