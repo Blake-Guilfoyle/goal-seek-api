@@ -13,9 +13,9 @@ app = FastAPI()
 
 class scheduleItem(BaseModel):
     date: str
-    interest: int
-    drawdowns: int
-    repayments: int
+    interest: float
+    drawdowns: float
+    repayments: float
     estimated: str
 
 class scheduleData(BaseModel):
